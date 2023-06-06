@@ -1,0 +1,47 @@
+@startuml
+
+scale 2
+left to right direction
+
+actor Administrador #purple
+actor Instrutor #blue
+actor Aluno #lightyellow
+
+/'
+# Cadastrar Usuário: Administrador responsável por adicionar, remover e editar os usuários do sistema
+# Gerenciar informações da academia: como horários, preços e planos de associação
+# Acompanhar desempenho financeiro: relatórios de pagamentos, fornecedores de equipamento e etc.
+'/
+
+rectangle "Caso de uso Administrador" {
+  Administrador --> (Cadastrar Usuários)
+  Administrador --> (Gerenciar informações da academia)
+  Administrador --> (Acompanhar o desempenho financeiro)
+}
+
+/'
+# Gerenciar aulas: definir horários de disponibilidade, confirmação, cancelamento e alteração das aulas
+# Criar planos de treinamento: De acordo com perfil e metas do aluno elaborar os planos de ação das aulas
+# Registrar o progessos do alunos: adicionar informações de evolução do aluno, através dos exames períodicos
+'/
+
+rectangle "Caso de uso Instrutor" {
+  Instrutor --> (Gerenciar aulas e horários disponíveis)
+  Instrutor --> (Criar planos de treinamento)
+  Instrutor --> (Registrar o progresso e desempenho dos alunos)
+}
+
+/'
+# Agendar aulas com instrutores: através do sistema escolher os horários e instrutores para o treinamento
+# Acompanhar o progresso e metas pessoais: de acordo com as informações do instrutor visualizar as melhorias nos relatórios
+# Realizar pagamento do plano: de acordo com o plano escolhido escolhe forma de pagamento e realiza-lo
+'/
+
+rectangle "Caso de uso Aluno" {
+  Aluno --> (Agendar aulas com instrutores)
+  Aluno --> (Acompanhar o progresso e metas pessoais)
+  Aluno --> (Realizar pagamento do plano)
+}
+
+@enduml
+

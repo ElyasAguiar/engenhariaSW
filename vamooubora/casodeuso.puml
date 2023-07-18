@@ -1,0 +1,31 @@
+@startuml
+
+scale 2
+left to right direction
+
+actor Usuario #blue
+actor Organizador #purple
+
+
+rectangle Ações_Usuario {
+  Usuario -- (Ações_Usuario)
+  (Ações_Usuario) .> (Autenticar Usuário) : extends
+  Usuario --> (Cadastrar-se no APP)
+  Usuario --> (Pesquisar Eventos)
+  Usuario --> (Selecionar Evento)
+  Usuario --> (Favoritar Evento)
+  Usuario --> (Realizar pagamento de inscrição)
+  Usuario --> (Compartilhar Evento)
+}
+
+rectangle Ações_Organizador{
+  Organizador -- (Ações_Organizador)
+  (Ações_Organizador) .> (Autenticar Usuário) : extends
+  Organizador --> (Cadastrar-se no APP)
+  Organizador --> (Cadastrar Evento)
+  Organizador --> (Relatório dos Eventos)
+  Organizador --> (Notificação de pagamento)
+  Organizador --> (Reembolsar inscrito)
+}
+
+@enduml

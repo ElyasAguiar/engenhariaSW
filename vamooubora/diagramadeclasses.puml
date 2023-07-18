@@ -1,0 +1,59 @@
+@startuml
+
+Usuario "1" *-- Inscricao
+Organizador "1" *-- Evento
+Evento *--* Inscricao
+Inscricao "1" *-- Pagamento
+
+class Usuario {
+    {static} id_usuario: String
+    - nome: String
+    - telefone: String
+    - email: String
+    - senha: String
+    +cadastrarUsuario(): Usuario
+    +editarUsuario(): Usuario
+}
+
+class Organizador {
+    {static} id_organizador: String
+    - nome: String
+    - telefone: String
+    - email: String
+    - senha: String
+    +cadastrarOrganizador(): Organizador
+    +editarOrganizador(): Organizador
+}
+
+class Evento {
+    {static} id_evento: String
+    - organizador: Organizador
+    - descricao: String
+    - endereco: Text
+    - horario_inicio: Datetime
+    - horario_termino: Datetime
+    +cadastrarEvento(): Evento
+    +listarEventos(): ArrayList<Evento>
+    +editarEvento(): Evento
+}
+
+class Inscricao {
+    {static} id_inscricao: String
+    - usuario: Usuario
+    - evento: Evento
+    +realizarInscricao(): Usuario
+    +listarInscricoes(): ArrayList<Inscricoes>
+}
+
+class Pagamento {
+    {static} id_pagamento: String
+    - inscricao: Inscricao
+    - evento: Evento
+    - usuario: Usuario
+    - pagamentoRealizado: Boolean
+    +realizarPagamento(): Pagamento
+    +listarPagamentos(): ArrayList<Pagamento>
+
+
+}
+@enduml

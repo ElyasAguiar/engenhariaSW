@@ -1,40 +1,12 @@
 @startuml
-!theme aws-orange
-scale 2
 left to right direction
-
-actor Usuário
-
-actor Leitores #purple
-actor Bibliotecários #blue
-actor Administradores #lightyellow
-
-Usuário <|-- Leitores
-Usuário <|-- Bibliotecários
-Usuário <|-- Administradores
-
-
-rectangle "Permissões Administrador" {
-  Administradores --> (Adicionar Usuário)
-  Administradores --> (Editar Usuário)
-  Administradores --> (Remover Usuário)
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .> (payment) : include
+  (help) .> (checkout) : extends
+  (checkout) -- clerk
 }
-
-rectangle "Permissões de Usuário" {
-  Usuário --> (Fazer Login) : (Adicionar Usuário)
-  Usuário --> (Pesquisar Livro)
-  Usuário --> (Ver Detalhes do Livro)
-  Usuário --> (Realizar Empréstimo)
-  Usuário --> (Devolver Livro)
-}
-
-rectangle "Permissões Bibliotecários" {
-  Bibliotecários --> (Adicionar Livro)
-  Bibliotecários --> (Editar Livro)
-  Bibliotecários --> (Remover Livro do Catálogo)
-  Bibliotecários --> (Visualizar Empréstimos)
-  Bibliotecários --> (Estender Prazo Empréstimo)
-  Bibliotecários --> (Encerrar empréstimo)
-}
-
 @enduml
